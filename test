@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from utils import NullChars, NullCharsIterator
+from utils import NullChars
 import curses
 import time
 import sys
@@ -46,14 +46,8 @@ class App:
     def doAction(self, stdscr):
         if self.k in ['KEY_UP', 'k']:
             self.index = max(self.index - self.width, 0)
-        elif self.k == 'KEY_PPAGE':
-            self.voffset = max(0, self.voffset - (self.height - 1))
-            self.index = max(0, self.index - self.width * (self.height - 1))
         elif self.k in ['KEY_DOWN', 'j']:
             self.index += self.width
-        elif self.k == 'KEY_NPAGE':
-            self.voffset += self.height
-            self.index += self.width * (self.height - 1)
         elif self.k in ['KEY_LEFT', 'h']:
             self.index = max(0, self.index - 1)
         elif self.k in ['KEY_RIGHT', 'l']:
@@ -90,7 +84,7 @@ def drawAll(app, stdscr, previewpanel):
 def drawEditor(app, stdscr):
     nullchars = app.nullchars
     index = app.firstIndex()
-    ncIndex = max(nullchars.getSKIndex(index), 0)
+    ncIndex = nullchars.getSKIndex(index)
     def isNull(start, index, end):
         return (index != nullchars.EOFIndex and
             ((nullchars.EOFIndex != -1 and index > nullchars.EOFIndex)
@@ -99,7 +93,7 @@ def drawEditor(app, stdscr):
 
     for row in range(app.height):
         for col in range(app.width):
-            if ncIndex < len(nullchars.sortedKeys) and ncIndex != -1:
+            if ncIndex < len(nullchars.sortedKeys):
                 start = nullchars.sortedKeys[ncIndex]
                 end = nullchars.rangeDict[start]
             else:
@@ -117,21 +111,9 @@ def drawEditor(app, stdscr):
                 ncIndex += 1
 
 def drawPreview(app, previewpanel):
+    #TODO: I want this to show as many lines as it can fit, that's always the plan. so maybe make toText an iterative function?
     previewpanel.erase()
-    preview = ''
-    x,y = (0,0)
-    i = NullCharsIterator(app.nullchars)
-    while y < app.height -1:
-        c = next(i)
-        preview += c
-        if c == '\n':
-            y += 1
-            x = 0
-        else:
-            x += 1
-            if x >= app.previewWidth:
-                y += 1
-                x = 0
+    preview = '\n'.join(app.nullchars.toText(app.finalIndex()).splitlines()[:app.height])
     previewpanel.addstr(0, 0, preview)
     '''previewpanel.addstr(0,0, "index " + str(app.index))
     previewpanel.addstr(1,0, "final index " + str(app.finalIndex()))
