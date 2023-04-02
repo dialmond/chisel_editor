@@ -1,2 +1,13 @@
-# chisel_editor
-Write text like you're carving a statue out of a stone block.
+# `chisel_editor`
+a vim-like text editor to sculpt text
+
+## what is it?
+my french course offered a poetry workshop taught by this Quebecois poet. through zoning out (I was tired, ok?) and my mediocre comprehension of the french language, I picked up something like this:
+
+> Poetry is fundamentally differerent from other art forms. When you make a statue, you start with a stone block, everything you can do is there, and it is the artist's job to carve out the statue. But when you write, you start with nothing and you build up into your poem.
+
+so sculpting is a process of removal and writing is a process of addition.
+
+`chisel_editor` reimagines writing as a process of removal. a user starts out with an infinite block of characters, your stone, and can *only* remove characters from it, likening the creation of a poem to that of a statue.
+
+## how to use it?
