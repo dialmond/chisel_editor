@@ -159,6 +159,7 @@ class NullChars():
         def characterIndexToIndex(c_i, c):
             return self.alphabet.index(c) + len(self.alphabet) * c_i
 
+        fileString = fileString.rstrip()
         if len(fileString) >= 1:
             self.sortedKeys = [0]
             self.rangeDict = {0:-1}

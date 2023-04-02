@@ -1,3 +1,9 @@
+# current TODO:
+* add :w, :q, :wq functionality
+* add visual selection?
+* add click to move cursor to index?
+* make file reading better. the program's goal should be to use ASCII if it can, but if it needs more characters in its alphabet, use the minimal alphabet possible to get there
+
 # TODO
 create an ncurses window. we have a string for our alphabet + variables for `NEWLINE_CHAR` `NULL_CHAR` `SPACE_CHAR` and `EOF_CHAR`.
 
@@ -84,4 +90,3 @@ comparison (character array representation):
 * idea: use some deterministic O(1) hash function that hashes indices to letters. and hell, maybe add in a seed, too, that's determined at the start? the function does not have to be periodic but it should always be 100% probability that you'll see a specific character as time goes on. that might look really cool, lol, and you'd have to search a little for your characters
   * you can make more frequently used characters show up more often
 * idea: no undo button. you can't undo chiseling a statue, you shouldn't be able to undo something like this. you can only delete.
-
