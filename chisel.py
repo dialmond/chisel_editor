@@ -122,7 +122,10 @@ def drawPreview(app, previewpanel):
     x,y = (0,0)
     i = NullCharsIterator(app.nullchars)
     while y < app.height -1:
-        c = next(i)
+        try:
+            c = next(i)
+        except StopIteration:
+            break
         preview += c
         if c == '\n':
             y += 1
