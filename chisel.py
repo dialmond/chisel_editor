@@ -5,7 +5,6 @@ import time
 import sys
 import textwrap
 
-HISTORY_SIZE = 100 #size of our history for "undo"
 NEWLINE_CHAR = "↩" #character we use to draw newlines
 #SPACE_CHAR = "█" # character we use to draw spaces
 SPACE_CHAR = " " # character we use to draw spaces
