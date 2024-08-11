@@ -11,6 +11,8 @@ so sculpting is a process of removal and writing is a process of addition.
 `chisel_editor` reimagines writing as a process of removal. a user starts out with an infinite block of characters, your stone, and can *only* remove characters from it, likening the creation of a poem to that of a statue.
 
 [![asciicast](https://asciinema.org/a/Rz3sq0zmZMHiAQMsJTX4uJJVy.svg)](https://asciinema.org/a/Rz3sq0zmZMHiAQMsJTX4uJJVy)
+[![asciicast](https://asciinema.org/a/JyIJcpNl2T9ur6nqALkW1loCm.svg)](https://asciinema.org/a/JyIJcpNl2T9ur6nqALkW1loCm)
+[![asciicast](https://asciinema.org/a/va0fSFSb8JRs9NENzcLT8273m.svg)](https://asciinema.org/a/va0fSFSb8JRs9NENzcLT8273m)
 
 ## how to use it?
 * use `./chisel.py <filename>` to edit a file
